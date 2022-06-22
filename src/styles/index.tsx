@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 import AntBtn from './antBtn'
+import AntForm from './antForm'
+import AntTab from './antTab'
 
 const GlobalStyle = createGlobalStyle`  
   * {
@@ -54,6 +56,8 @@ const GlobalWrapper = () => (
   <>
     <GlobalStyle />
     <AntBtn />
+    <AntForm />
+    <AntTab />
   </>
 )
 

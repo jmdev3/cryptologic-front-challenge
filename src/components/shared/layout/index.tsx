@@ -1,4 +1,4 @@
-import { Switch } from 'antd'
+import { Col, Menu, Row, Switch } from 'antd'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useMst } from 'stores'
@@ -9,9 +9,6 @@ interface ILayout {
 }
 
 const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
   background: ${(props) => props.theme.colors.backgroundSecondary};
   box-shadow: 0px 10px 14px 0px ${(props) => props.theme.colors.boxShadow};
@@ -34,18 +31,37 @@ const Header = styled.header`
       ${(props) => props.theme.colors.backgroundSecondary}
     );
   }
+
+  .ant-menu {
+    width: 227px;
+  }
 `
 
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  font-size: 22px;
+  font-size: ${(props) => props.theme.fontSizes.lg};
   color: ${(props) => props.theme.colors.primary};
+  font-weight: 600;
 `
 
-const Section = styled.section``
+const LogoCol = styled(Col)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
 
-const Footer = styled.footer``
+const NavCol = styled(Col)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const SwitchCol = styled(Col)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`
 
 const Layout: React.FC<ILayout> = ({ children }) => {
   const state = useMst()
@@ -64,19 +80,35 @@ const Layout: React.FC<ILayout> = ({ children }) => {
       </Head>
 
       <Header>
-        <LogoWrapper>CRYPTOLOGIC CHALLENGE</LogoWrapper>
+        <Row>
+          <LogoCol xs={24} sm={8}>
+            <LogoWrapper>
+              <Image src="/assets/logo.png" alt="logo" width={40} height={40} />
+              &nbsp;&nbsp;Challenge
+            </LogoWrapper>
+          </LogoCol>
 
-        <Switch
-          checkedChildren="Dark"
-          unCheckedChildren="Light"
-          checked={state.theme === 'dark'}
-          onClick={handleThemeChange}
-        />
+          <NavCol xs={24} sm={8}>
+            <div>
+              <Menu mode="horizontal" defaultSelectedKeys={['transactions']}>
+                <Menu.Item key="transactions">Transactions</Menu.Item>
+                <Menu.Item key="stats">Stats</Menu.Item>
+              </Menu>
+            </div>
+          </NavCol>
+
+          <SwitchCol xs={24} sm={8}>
+            <Switch
+              checkedChildren="Dark"
+              unCheckedChildren="Light"
+              checked={state.theme === 'dark'}
+              onClick={handleThemeChange}
+            />
+          </SwitchCol>
+        </Row>
       </Header>
 
-      <Section>{children}</Section>
-
-      <Footer></Footer>
+      <section>{children}</section>
     </>
   )
 }
