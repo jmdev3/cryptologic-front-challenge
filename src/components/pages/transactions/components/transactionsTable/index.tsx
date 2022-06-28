@@ -10,7 +10,6 @@ import styled from 'styled-components'
 import parseLongHex from 'utils/parseLongHex'
 
 const Wrapper = styled.div`
-  padding: 20px;
   overflow: auto;
 `
 

@@ -1,7 +1,7 @@
 import axios from 'api'
 
 const defaultParams = {
-  key: 'ckey_73c2af902af04adfa2b79552f92',
+  key: process.env.NEXT_PUBLIC_COBALENT_KEY,
   format: 'JSON',
   'quote-currency': 'USD',
   'no-logs': true,
