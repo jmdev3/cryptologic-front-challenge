@@ -26,6 +26,7 @@ export type IRootModel = Instance<typeof RootModel>
 // eslint-disable-next-line prettier/prettier
 const RootContext = createContext<IRootModel>({} as IRootModel)
 export const MobxProvider = RootContext.Provider
+
 export function useMst(): Instance<typeof RootModel> {
   const state = useContext(RootContext)
   if (state === null) {

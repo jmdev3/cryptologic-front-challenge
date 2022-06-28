@@ -30,6 +30,11 @@ const AntTable = createGlobalStyle`
       background: ${(props) => props.theme.colors.backgroundSecondary};
       color: ${(props) => props.theme.colors.primary};
     }
+
+    .ant-table-column-sort {
+      background: ${(props) =>
+        props.theme.colors.backgroundSecondary} !important;
+    }
   }
 
   .ant-table-tbody {
