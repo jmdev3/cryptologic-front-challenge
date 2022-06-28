@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 import AntBtn from './antBtn'
 import AntForm from './antForm'
 import AntTab from './antTab'
+import AntTable from './antTable'
 
 const GlobalStyle = createGlobalStyle`  
   * {
@@ -58,6 +59,7 @@ const GlobalWrapper = () => (
     <AntBtn />
     <AntForm />
     <AntTab />
+    <AntTable />
   </>
 )
 
