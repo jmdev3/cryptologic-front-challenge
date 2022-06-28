@@ -8,11 +8,16 @@ import styled from 'styled-components'
 
 const FormWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  width: 100%;
 
   .ant-form {
     display: flex;
     align-items: center;
+    width: 100%;
+
+    .ant-row:first-of-type {
+      width: 100%;
+    }
   }
 `
 
@@ -34,6 +39,7 @@ const AddressInput: React.FC = () => {
 
   function onFinish(data: { address: string }) {
     state.transations.setAddress(data.address)
+    router.replace(router.pathname.includes('transactions') ? data.address : `transactions/${data.address}`)
   }
 
   return (

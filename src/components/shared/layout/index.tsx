@@ -1,11 +1,19 @@
 import { Col, Menu, Row, Switch } from 'antd'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useMst } from 'stores'
 import styled from 'styled-components'
 
 interface ILayout {
   children: React.ReactNode;
+}
+
+const mapRoutes: { [key: string]: string } = {
+  '/': 'transactions',
+  '/transactions': 'transactions',
+  '/stats': 'stats',
 }
 
 const Header = styled.header`
@@ -65,6 +73,7 @@ const SwitchCol = styled(Col)`
 
 const Layout: React.FC<ILayout> = ({ children }) => {
   const state = useMst()
+  const router = useRouter()
 
   function handleThemeChange() {
     if (state.theme === 'dark') {
@@ -90,9 +99,20 @@ const Layout: React.FC<ILayout> = ({ children }) => {
 
           <NavCol xs={24} sm={8}>
             <div>
-              <Menu mode="horizontal" defaultSelectedKeys={['transactions']}>
-                <Menu.Item key="transactions">Transactions</Menu.Item>
-                <Menu.Item key="stats">Stats</Menu.Item>
+              <Menu
+                mode="horizontal"
+                selectedKeys={[mapRoutes[router.pathname]]}
+              >
+                <Menu.Item key="transactions">
+                  <Link href="/transactions">
+                    <a>Transactions</a>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="stats">
+                  <Link href="/stats">
+                    <a>Stats</a>
+                  </Link>
+                </Menu.Item>
               </Menu>
             </div>
           </NavCol>

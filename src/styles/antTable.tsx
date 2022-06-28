@@ -42,9 +42,18 @@ const AntTable = createGlobalStyle`
       background: ${(props) => props.theme.colors.backgroundPrimary};
       color: ${(props) => props.theme.colors.primary};
     }
+
     .ant-table-cell-row-hover {
       background: ${(props) =>
         props.theme.colors.backgroundSecondary} !important;
+    }
+
+    .ant-table-placeholder:hover > td {
+      background: ${(props) => props.theme.colors.backgroundPrimary} !important;
+    }
+
+    .ant-empty-description {
+      color: ${(props) => props.theme.colors.primary};
     }
   }
 `

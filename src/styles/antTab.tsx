@@ -6,9 +6,11 @@ const AntTab = createGlobalStyle`
   }
 
   .ant-menu-title-content {
-    color: ${(props) => props.theme.colors.primary};
-    font-size: ${(props) => props.theme.fontSizes.md};
-    font-weight: 600;
+    a {
+      color: ${(props) => props.theme.colors.primary} !important;
+      font-size: ${(props) => props.theme.fontSizes.md};
+      font-weight: 600;
+    }
   }
 `
 
