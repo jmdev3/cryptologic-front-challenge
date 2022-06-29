@@ -23,10 +23,6 @@ const GlobalStyle = createGlobalStyle`
     overflow: auto;
   }
 
-  span, label, h1, h2, h3, h4, h5 {
-    color: ${(props) => props.theme.colors.white};
-  }
-
   ul {
     list-style-type: none;
     padding: 0;

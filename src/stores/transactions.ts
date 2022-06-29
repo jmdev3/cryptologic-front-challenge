@@ -97,3 +97,4 @@ export const TransactionsStore = types
   })
 
 export type ITransaction = Instance<typeof Transaction>
+export type ITransactionsStore = Instance<typeof TransactionsStore>

@@ -1,3 +1,3 @@
-import Transactions from 'components/pages/transactions'
+import Stats from 'components/pages/stats'
 
-export default Transactions
+export default Stats

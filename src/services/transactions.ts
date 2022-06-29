@@ -7,7 +7,13 @@ const defaultParams = {
   'no-logs': true,
 }
 
-export const getTransactions = (address: string, params: any) =>
+type Params = {
+  'page-number': number,
+  'page-size': number,
+  'block-signed-at-asc': boolean,
+}
+
+export const getTransactions = (address: string, params: Params) =>
   axios.get(
     `https://api.covalenthq.com/v1/1/address/${address}/transactions_v2/`,
     {

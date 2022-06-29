@@ -39,7 +39,8 @@ const AddressInput: React.FC = () => {
 
   function onFinish(data: { address: string }) {
     state.transations.setAddress(data.address)
-    router.replace(router.pathname.includes('transactions') ? data.address : `transactions/${data.address}`)
+    const newPath = router.pathname.includes('transactions/') ? data.address : `transactions/${data.address}`
+    router.replace(newPath, newPath, { shallow: true })
   }
 
   return (

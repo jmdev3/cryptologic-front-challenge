@@ -7,7 +7,7 @@ import TransactionsTable from './components/transactionsTable'
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 10px 20px 20px 20px;
+  padding: 20px;
 `
 
 const Transactions: React.FC = () => {

@@ -4,11 +4,14 @@ import {
 } from 'mobx-state-tree'
 import { createContext, useContext } from 'react'
 
+import { StatsStore } from './stats'
 import { TransactionsStore } from './transactions'
 
 export const RootModel = types
   .model({
     transations: types.optional(TransactionsStore, {}),
+    stats: types.optional(StatsStore, {}),
+
     theme: types.enumeration('theme', ['dark', 'light'])
   })
   .actions(self => {
