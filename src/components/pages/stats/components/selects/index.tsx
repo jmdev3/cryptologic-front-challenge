@@ -1,5 +1,6 @@
 import { Select } from 'antd'
 import { observer } from 'mobx-react'
+import Image from 'next/image'
 import React from 'react'
 import { useMst } from 'stores'
 import { supportedTokens } from 'stores/stats'
@@ -18,6 +19,11 @@ const Wrapper = styled.div`
   }
 `
 
+const OptionInnerWrapper = styled.div`
+  dispĺay: flex;
+  align-items: center;
+`
+
 const Selects: React.FC = () => {
   const state = useMst()
 
@@ -31,10 +37,17 @@ const Selects: React.FC = () => {
 
   return (
     <Wrapper>
-      <Select value={state.stats.contractAddress} onChange={onTokenChange}>
+      <Select
+        value={state.stats.contractAddress}
+        onChange={onTokenChange}
+        style={{ width: 250 }}
+      >
         {supportedTokens.map((e) => (
           <Option value={e.contractAddress} key={e.contractAddress}>
-            {e.name} ({e.symbol})
+            <OptionInnerWrapper>
+              <Image src={e.logo} height={14} width={14} alt="logo" />
+              &nbsp;{e.name} ({e.symbol})
+            </OptionInnerWrapper>
           </Option>
         ))}
       </Select>

@@ -93,6 +93,10 @@ const AntForm = createGlobalStyle`
   .ant-select-item-option-selected, .ant-select-item-option-active {
     background: ${(props) => props.theme.colors.backgroundPrimary} !important;
   }
+
+  .ant-select-selection-item {
+    display: flex;
+  }
 `
 
 export default AntForm

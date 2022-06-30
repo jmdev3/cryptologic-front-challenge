@@ -4,6 +4,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['logos.covalenthq.com'],
+  },
 }
 
 module.exports = nextConfig

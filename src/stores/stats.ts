@@ -8,31 +8,37 @@ export const supportedTokens = [
     contractAddress: '0xB8c77482e45F1F44dE1745F52C74426C631bDD52',
     name: 'BNB',
     symbol: 'BNB',
+    logo: 'https://logos.covalenthq.com/tokens/0xb8c77482e45f1f44de1745f52c74426c631bdd52.png',
   },
   {
     contractAddress: '0xdac17f958d2ee523a2206206994597c13d831ec7',
     name: 'Tether USD',
     symbol: 'USDT ',
+    logo: 'https://logos.covalenthq.com/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7.png',
   },
   {
     contractAddress: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
     name: 'USD Coin',
     symbol: 'USDC',
+    logo: 'https://logos.covalenthq.com/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png',
   },
   {
     contractAddress: '0x6b175474e89094c44da98b954eedeac495271d0f',
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    logo: 'https://logos.covalenthq.com/tokens/0x6b175474e89094c44da98b954eedeac495271d0f.png',
   },
   {
     contractAddress: '0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE',
     name: 'SHIBA INU',
     symbol: 'SHIB',
+    logo: 'https://logos.covalenthq.com/tokens/0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce.png',
   },
   {
     contractAddress: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    logo: 'https://logos.covalenthq.com/tokens/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png',
   },
 ]
 
