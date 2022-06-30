@@ -1,5 +1,6 @@
-import { pick } from 'lodash'
+import { maxBy, minBy, pick, reverse } from 'lodash'
 import { flow, Instance, types } from 'mobx-state-tree'
+import moment from 'moment'
 import { getTokenPrices } from 'services/tokenPrices'
 
 export const supportedTokens = [
@@ -43,22 +44,49 @@ export const Price = types.model({
 export const StatsStore = types
   .model({
     prices: types.array(Price),
-    contractAddress: '',
-
+    contractAddress: supportedTokens[0].contractAddress,
+    range: types.enumeration('range', ['day', 'week', 'month', 'year']),
     loading: false,
   })
+  .views((self) => ({
+    get minPrice(): number | undefined {
+      if (self.prices.length > 0) {
+        return minBy(self.prices, (e) => e.price)?.price
+      }
+      return 0
+    },
+    get maxPrice(): number | undefined {
+      if (self.prices.length > 0) {
+        return maxBy(self.prices, (e) => e.price)?.price
+      }
+      return 0
+    },
+  }))
   .actions((self) => {
     const getTokenPricesMethod = flow(function* getTokenPricesMethod() {
       try {
         self.loading = true
 
-        const response = yield getTokenPrices(
-          supportedTokens[0].contractAddress
-        )
+        const to = moment()
+        const from = moment()
+
+        if (self.range === 'day') {
+          from.subtract(1, 'days')
+          console.log(from, to)
+        } else {
+          from.startOf(self.range)
+        }
+
+        const response = yield getTokenPrices(self.contractAddress, {
+          from: from.format('YYYY-MM-DD'),
+          to: to.format('YYYY-MM-DD'),
+        })
 
         self.prices.replace(
-          response.data.data[0].items.map((e: unknown) =>
-            pick(e, ['price', 'date'])
+          reverse(
+            response.data.data[0].items.map((e: unknown) =>
+              pick(e, ['price', 'date'])
+            )
           )
         )
       } catch (error) {
@@ -68,8 +96,20 @@ export const StatsStore = types
       }
     })
 
+    const setContractAddress = (contractAddress: string) => {
+      self.contractAddress = contractAddress
+      getTokenPricesMethod()
+    }
+
+    const setRange = (range: 'day' | 'week' | 'month' | 'year') => {
+      self.range = range
+      getTokenPricesMethod()
+    }
+
     return {
       getTokenPricesMethod,
+      setContractAddress,
+      setRange,
     }
   })
 

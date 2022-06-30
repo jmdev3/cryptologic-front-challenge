@@ -102,18 +102,25 @@ const Layout: React.FC<ILayout> = ({ children }) => {
               <Menu
                 mode="horizontal"
                 selectedKeys={[mapRoutes[router.pathname]]}
-              >
-                <Menu.Item key="transactions">
-                  <Link href="/transactions">
-                    <a>Transactions</a>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="stats">
-                  <Link href="/stats">
-                    <a>Stats</a>
-                  </Link>
-                </Menu.Item>
-              </Menu>
+                items={[
+                  {
+                    label: (
+                      <Link href="/transactions">
+                        <a>Transactions</a>
+                      </Link>
+                    ),
+                    key: 'transactions',
+                  },
+                  {
+                    label: (
+                      <Link href="/stats">
+                        <a>Stats</a>
+                      </Link>
+                    ),
+                    key: 'stats',
+                  },
+                ]}
+              />
             </div>
           </NavCol>
 

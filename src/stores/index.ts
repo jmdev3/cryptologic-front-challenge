@@ -10,8 +10,7 @@ import { TransactionsStore } from './transactions'
 export const RootModel = types
   .model({
     transations: types.optional(TransactionsStore, {}),
-    stats: types.optional(StatsStore, {}),
-
+    stats: types.optional(StatsStore, { range: 'month' }),
     theme: types.enumeration('theme', ['dark', 'light'])
   })
   .actions(self => {

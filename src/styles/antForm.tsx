@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const AntForm = createGlobalStyle`
   .ant-form-item-label>label {
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.primary};
     font-size: ${(props) => props.theme.fontSizes.xs};
   }
 
@@ -20,7 +20,7 @@ const AntForm = createGlobalStyle`
 
     .ant-input-suffix {
       svg {
-        color: ${(props) => props.theme.colors.white}; 
+        color: ${(props) => props.theme.colors.primary}; 
       }
     }
   }
@@ -37,7 +37,8 @@ const AntForm = createGlobalStyle`
       props.theme.colors.light} inset !important;
     -webkit-box-shadow: 0 0 0 20px ${(props) =>
       props.theme.colors.light} inset !important;
-    -webkit-text-fill-color: ${(props) => props.theme.colors.white} !important;
+    -webkit-text-fill-color: ${(props) =>
+      props.theme.colors.primary} !important;
   }
 
   input:-webkit-autofill,
@@ -53,7 +54,8 @@ const AntForm = createGlobalStyle`
       props.theme.colors.light} inset !important;
     -webkit-box-shadow: 0 0 0 20px ${(props) =>
       props.theme.colors.light} inset !important;
-    -webkit-text-fill-color: ${(props) => props.theme.colors.white} !important;
+    -webkit-text-fill-color: ${(props) =>
+      props.theme.colors.primary} !important;
   }
 
   .ant-input-status-error {
@@ -68,28 +70,28 @@ const AntForm = createGlobalStyle`
     display: flex !important;
     align-items: center !important;
     height: 38px !important;
-    background: ${(props) => props.theme.colors.light} !important;
+    background: ${(props) => props.theme.colors.backgroundSecondary} !important;
     border: none !important;
     border-radius: 8px !important;
-    color: ${(props) => props.theme.colors.white} !important;
+    color: ${(props) => props.theme.colors.primary} !important;
   }
   
   .ant-select-arrow {
-    color: ${(props) => props.theme.colors.white} !important;
+    color: ${(props) => props.theme.colors.primary} !important;
   }
 
   .ant-select-dropdown {
-    background: ${(props) => props.theme.colors.light} !important;
+    background: ${(props) => props.theme.colors.backgroundSecondary} !important;
     box-shadow: 0 4px 4px 0 ${(props) => props.theme.colors.black};
   }
 
   .ant-select-item {
-    color: ${(props) => props.theme.colors.white} !important;
+    color: ${(props) => props.theme.colors.primary} !important;
     border-radius: 8px !important;
   }
 
   .ant-select-item-option-selected, .ant-select-item-option-active {
-    background: ${(props) => props.theme.colors.primary} !important;
+    background: ${(props) => props.theme.colors.backgroundPrimary} !important;
   }
 `
 

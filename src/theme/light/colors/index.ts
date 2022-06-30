@@ -5,7 +5,7 @@ const colors: IColors = {
   secondary: '#121212',
 
   backgroundPrimary: '#fff',
-  backgroundSecondary: '#d9d9d94a',
+  backgroundSecondary: '#f2f2f2',
 
   buttonPrimary: 'linear-gradient(90deg, #0f60ff 0%, #8743ff 100%)',
   buttonDefault: 'transparent',
