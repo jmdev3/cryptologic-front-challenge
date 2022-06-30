@@ -1,5 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+  output: 'standalone',
+  experimental: {
+    outputStandalone: true,
+  },
   reactStrictMode: true,
   compiler: {
     styledComponents: true,
@@ -8,5 +11,3 @@ const nextConfig = {
     domains: ['logos.covalenthq.com'],
   },
 }
-
-module.exports = nextConfig
