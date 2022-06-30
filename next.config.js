@@ -7,6 +7,7 @@ const nextConfig = {
   images: {
     domains: ['logos.covalenthq.com'],
   },
+  output: 'standalone',
 }
 
 module.exports = nextConfig
