@@ -11,9 +11,9 @@ interface ILayout {
 }
 
 const mapRoutes: { [key: string]: string } = {
-  '/': 'transactions',
-  '/transactions': 'transactions',
-  '/stats': 'stats',
+  '': 'transactions',
+  transactions: 'transactions',
+  stats: 'stats',
 }
 
 const Header = styled.header`
@@ -101,7 +101,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
             <div>
               <Menu
                 mode="horizontal"
-                selectedKeys={[mapRoutes[router.pathname]]}
+                selectedKeys={[mapRoutes[router.pathname.split('/')[1]]]}
                 items={[
                   {
                     label: (
