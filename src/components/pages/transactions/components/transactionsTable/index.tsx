@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 const PaginationButtons = styled.div`
-  margin-top: 12px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;

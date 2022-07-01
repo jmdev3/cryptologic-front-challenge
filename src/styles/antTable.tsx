@@ -5,6 +5,10 @@ const AntTable = createGlobalStyle`
     background: ${(props) => props.theme.colors.backgroundSecondary};
   }
 
+  .ant-table-wrapper {
+    box-shadow: 0px 10px 14px 0px ${(props) => props.theme.colors.boxShadow};
+  }
+
   .ant-table-thead {
     position: relative;
 

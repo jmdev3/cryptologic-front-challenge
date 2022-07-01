@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   color: ${(props) => props.theme.colors.primary};
   background: ${(props) => props.theme.colors.backgroundSecondary};
   border-radius: 10px;
+  box-shadow: 0px 10px 14px 0px ${(props) => props.theme.colors.boxShadow};
 `
 
 const Chart: React.FC = () => {
@@ -26,6 +27,14 @@ const Chart: React.FC = () => {
           tickCount: 6,
           min: state.stats.minPrice,
           max: state.stats.maxPrice,
+          grid: {
+            line: {
+              style: {
+                opacity: 0.2,
+                stroke: state.theme === 'dark' ? 'white' : 'dark'
+              }
+            }
+          }
         }}
         smooth={true}
         padding="auto"
@@ -34,6 +43,10 @@ const Chart: React.FC = () => {
             items.map((i) => ({ ...i, value: `USD ${i.value}` })),
         }}
         loading={state.stats.loading}
+        lineStyle={{
+          stroke: '#8743ff',
+          shadowColor: 'green'
+        }}
       />
     </Wrapper>
   )
