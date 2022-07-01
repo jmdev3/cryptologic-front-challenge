@@ -31,10 +31,10 @@ const Chart: React.FC = () => {
             line: {
               style: {
                 opacity: 0.2,
-                stroke: state.theme === 'dark' ? 'white' : 'dark'
-              }
-            }
-          }
+                stroke: state.theme === 'dark' ? 'white' : 'dark',
+              },
+            },
+          },
         }}
         smooth={true}
         padding="auto"
@@ -45,7 +45,7 @@ const Chart: React.FC = () => {
         loading={state.stats.loading}
         lineStyle={{
           stroke: '#8743ff',
-          shadowColor: 'green'
+          shadowColor: 'green',
         }}
       />
     </Wrapper>
